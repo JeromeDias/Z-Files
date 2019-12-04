@@ -53,3 +53,49 @@ input, textarea{
 /***************************************/
 /***************END OF RESET************/
 /***************************************/
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca;
+	font-weight: bold;
+	font-size: 4rem;
+	border: 2px solid #00b1ca;
+	border-radius: 100%;
+	padding: 10px 40px;
+	margin-top: 50px;
+}
+.label-file:hover {
+    color: #25a5c4;
+}
+
+p {
+	margin-bottom: 0!important;
+}
+
+.input-file {
+    display: none;
+}
+
+.formulaire {
+	display: flex;
+	align-items: center;
+}
+
+.popup span {
+	border: 2px solid #25a5c4;
+	background: #eee;
+	top: 0;
+	position: absolute;
+	padding: 0 50px;
+}
+
+.popup span::after {
+	content: "";
+	border-width: 8px;
+	border-style: solid;
+	border-color: #25a5c4 transparent transparent transparent;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+}
