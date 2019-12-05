@@ -12,10 +12,13 @@ include 'header.php';
 
 <label for="emailto">Envoyer à :</label>
 <input type="email" name="emailto" id="emailto">
+<p class="error"><?php echo $emailtoError ?></p>
 <label for="email">De la part de :</label>
 <input type="email" name="email" id="email">
+<p class="error"><?php echo $emailError ?></p>
 <label for="message">Message</label>
 <textarea name="message" id="message" cols="30" rows="10"></textarea>
+<p class="error"><?php echo $messageError ?></p>
 
 <input type="file" id="file" name="file[]" multiple>
 <?php

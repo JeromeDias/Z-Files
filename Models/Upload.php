@@ -7,14 +7,42 @@ require('Connexion.php');
 
 $error = "";
 $success = "";
+$emailtoError = "";
+$emailError = "";
+$messageError = "";
 
 // Envoi du fichier
 
 if (isset($_POST['submit'])) {
 
+    $emailto = $_POST['emailto'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $isSuccess = true;
+    $emailText = "";
+
+    if(empty($emailto)) {
+        $emailtoError = "Merci de renseigner un e-mail";
+        $isSuccess = false;
+    }
+
+    if(empty($email)) {
+        $emailError = "Merci de renseigner un e-mail";
+        $isSuccess = false;
+    }
+    else {
+        $emailText .= "De la part de : " . $email . '\n';
+    }
+
+    if(empty($message)) {
+        $messageError = "Merci de renseigner message";
+        $isSuccess = false;
+    }
+    else {
+        $emailText .= "Message : " . $message . '\n';
+    }
+
     if (!empty($_FILES['file']['name'][0])) {
-
-
 
         $zip = new ZipArchive();
         $zip_name = getcwd() . "/assets/files/upload_" . time() . ".zip";
