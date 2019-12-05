@@ -5,7 +5,7 @@ include 'header.php';
 
 ?>
 
-<div class="container">
+<!-- <div class="container">
 
     <div class="row">
 
@@ -33,7 +33,7 @@ include 'header.php';
 
 
 
-</div>
+</div> -->
 <?php
 
 // include 'contact-form.php';
