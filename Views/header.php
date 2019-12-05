@@ -14,6 +14,14 @@
 
 <body>
 
+<nav>
+<ul>
+<li><a href="index.php?page=Upload">Upload</a></li>
+
+</ul>
+
+</nav>
+
     <header id="header" class="">
 
     </header>
