@@ -81,25 +81,8 @@ p {
 	align-items: center;
 }
 
-.popup {
-	margin-top: 20px;
-}
-
-.popup span {
-	border: 2px solid #25a5c4;
-	background: #eee;
-	top: 0;
-	position: relative;
-	padding: 10px 50px;
-}
-
-.popup span::after {
-	content: "";
-	border-width: 8px;
-	border-style: solid;
-	border-color: #25a5c4 transparent transparent transparent;
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -8px;
+.bordure{
+	border: 1px solid #00b1ca;
+	border-radius: 20px;
+	padding: 20px;
 }
