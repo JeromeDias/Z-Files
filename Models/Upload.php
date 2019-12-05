@@ -1,50 +1,121 @@
+
 <?php
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION, PATHINFO_FILENAME, PATHINFO_DIRNAME, PATHINFO_BASENAME));
 
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "Le fichier et correct" . $check["mime"] . ".";
-        $uploadOk = 1;
+// Upload d'un fichier
+
+require('Connexion.php');
+
+$error = "";
+$success = "";
+
+// Envoi du fichier
+
+if (isset($_POST['submit'])) {
+
+    if (!empty($_FILES['file']['name'][0])) {
+
+        // var_dump($_FILES['file']['type'][0]);
+        $ext = pathinfo($_FILES['file']['name'][0], PATHINFO_EXTENSION);
+        
+        $zip = new ZipArchive();
+        $zip_name = getcwd() . "/assets/files/upload_" . time() . ".zip";
+
+
+        // Créer un fichier ZIP
+        if ($zip->open($zip_name, ZipArchive::CREATE) !== TRUE) {
+            $error .= "La compression n'a pas fonctionné.<br>";
+        }
+
+        $imageCount = count($_FILES['file']['name']);
+        for ($i = 0; $i < $imageCount; $i++) {
+
+            if ($_FILES['file']['tmp_name'][$i] == '') {
+                continue;
+            }
+            $newname = date('YmdHis', time()) . mt_rand() . '.' . $ext;
+
+            // Ajoute un fichier dans un dossier ZIP
+            $zip->addFromString($_FILES['file']['name'][$i], file_get_contents($_FILES['file']['tmp_name'][$i]));
+
+            // Déplace le fichier dans le chemin défini
+            move_uploaded_file($_FILES['file']['tmp_name'][$i], './assets/files/' . $newname);
+        }
+        $zip->close();
+
+        // Création du lien de téléchargement
+        $success = basename($zip_name);
+
     } else {
-        echo "Le fichier n'est pas correct";
-        $uploadOk = 0;
+        $error = '<strong>Erreur ! </strong> Merci de choisir un fichier.';
     }
 }
 
-if (file_exists($target_file)) {
-    echo "Désoler, votre fichier existe déja";
-    $uploadOk = 0;
-}
-// tailles des fichiers.
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Désoler, votre fichier et trop volumineux";
-    $uploadOk = 0;
-}
-//formats des fichiers (images).
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
+// if (isset($_POST['submit'])) {
+//     $file = $_FILES['file']['name'][0];
+//     $filepath = 'assets/files/';
+//     $success = true;
+//     $imageCount = count($_FILES['file']['name']);
 
-//error 1 - (Formats).
-    echo "Désoler, Votre ficher n'est pas du bon forrmat";
-    $uploadOk = 0;
-}
+//     for ($i=0; $i < $imageCount ; $i++) { 
+//         if($_FILES['file']['tmp_name'][$i] == ''){
+//             continue;
+//         }
+//         $newname = date('YmdHis', time()) . mt_rand() . '.jpg';
+//         move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath . $newname);
+//     }
 
-if ($uploadOk == 0) {
+// }
+    // Récupération des fichiers dans un tableau
+//     foreach ($file as $value) {
+//         if (empty($value)) {
+//             $error = "Merci de choisir un fichier";
+//             $success = false;
+//         } else {
+//             $success = true;
+//         }
+//         // Si succès : ajout dans la BDD
+//         if ($success) {
+//             echo 'Fichier créé: ' . $filepath . $value . '<br>';
+//             global $bdd;
+//             $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
+//             $statement->execute(array($value));
+//             $success = "OK !";
+//         }
+//     }
+//     $zip = new ZipArchive();
 
-// error 2 - (Uploads).
-    echo "Désoler, votre fichier n'a pas était uploader";
+//     if ($zip->open('Zip.zip', ZipArchive::CREATE) == true) {
+//         echo "ouvert";
 
-} else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " Upload OK.";
-    } else {
+//         $zip->addFile($filepath.$file);
 
-// erro 3 - (Fichiers non Correct).
-        echo "Désoler, votre fichier n'est pas correct";
-    }
-}
+//         $zip->close();
+//     } else {
+//         echo "Impossible";
+//     }
+// }
+// Si pas de fichier sélectionné
+
+// Si succès
+// if ($success) {
+//     global $bdd;
+//     // move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
+//     $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
+//     $statement->execute(array($file));
+//     $success = "OK !";
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
