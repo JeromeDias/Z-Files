@@ -25,7 +25,7 @@ include 'header.php';
             <div class="popup mx-auto">
                 <span>Sélectionnez vos fichiers</span>
             </div>
-            <!-- </div> -->
+ </div> -->
                 <form action="" method="post" enctype="multipart/form-data">
                     <label for="file" class="label-file">
                         <p>Z</p>
@@ -44,12 +44,12 @@ include 'header.php';
     <div id="background" class="container">
         <div class=row>
             <div class="col-md-12">
-                <img src="assets/img/logo/test.jpg" class="img-fluid" alt="image">
+                <img src="assets/img/" class="img-fluid" alt="index">
             </div>
         </div>
     </div>
 
-</div> -->
+</div>
 <?php
 
 
