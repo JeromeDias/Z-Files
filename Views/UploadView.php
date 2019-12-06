@@ -53,7 +53,7 @@ include 'header.php';
                 <p class="error"><?php echo $messageError ?></p>
             </div>
             <div class="form-group row m-2">
-                <input type="submit" id="submit" name="submit" class="form-control btn btn-submit" value="Envoyer">
+                <input type="submit" id="submit" name="submit" class="form-control btn btn-submit" value="Transférer">
             </div>
         </div>
     </div>
