@@ -3,6 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+-- Généré le :  jeu. 05 déc. 2019 à 08:40
 -- Généré le :  jeu. 05 déc. 2019 à 08:24
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
@@ -21,6 +22,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `z-files`
 --
+CREATE DATABASE IF NOT EXISTS `z-files` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `z-files`;
 
 -- --------------------------------------------------------
 
