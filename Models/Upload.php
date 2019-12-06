@@ -17,9 +17,16 @@ if (isset($_POST['submit'])) {
 
     $emailto = $_POST['emailto'];
     $email = $_POST['email'];
-    $message = $_POST['message'];
+    $subjectto = "Fichier à télécharger";
+    $subject = "Email de confirmation d'envoi";
+    $messageto = $_POST['message'];
+    $message = "
+    Votre mail à bien été envoyé à : ".$emailto. "
+    Le lien de téléchargement est :";
     $isSuccess = true;
     $emailText = "";
+    $headers = 'MIME-Version: 1.0';
+    $headers .= 'Content-type: text/html; charset=iso-8859-1';
 
     if(empty($emailto)) {
         $emailtoError = "Merci de renseigner un e-mail";
@@ -31,7 +38,7 @@ if (isset($_POST['submit'])) {
         $isSuccess = false;
     }
     else {
-        $emailText .= "De la part de : " . $email . '\n';
+        $emailText .= "De la part de : " . $email . "\n";
     }
 
     if(empty($message)) {
@@ -39,8 +46,9 @@ if (isset($_POST['submit'])) {
         $isSuccess = false;
     }
     else {
-        $emailText .= "Message : " . $message . '\n';
+        $emailText .= "Message : " . $messageto . "\n";
     }
+
 
     if (!empty($_FILES['file']['name'][0])) {
 
@@ -75,77 +83,15 @@ if (isset($_POST['submit'])) {
         global $bdd;
         $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
         $statement->execute(array($success));
+
+        if (!empty($email) && !empty($emailto)) {
+            $emailText .= "
+            Z-Files - Le transfert de fichiers numéro 1
+            Votre lien de téléchargement : ";
+            mail($emailto, $subjectto, $emailText, $headers);
+            mail($email, $subject, $message, $headers);
+        }
     } else {
         $error = '<strong>Erreur ! </strong> Merci de choisir un fichier.';
     }
 }
-
-// if (isset($_POST['submit'])) {
-//     $file = $_FILES['file']['name'][0];
-//     $filepath = 'assets/files/';
-//     $success = true;
-//     $imageCount = count($_FILES['file']['name']);
-
-//     for ($i=0; $i < $imageCount ; $i++) { 
-//         if($_FILES['file']['tmp_name'][$i] == ''){
-//             continue;
-//         }
-//         $newname = date('YmdHis', time()) . mt_rand() . '.jpg';
-//         move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath . $newname);
-//     }
-
-// }
-// Récupération des fichiers dans un tableau
-//     foreach ($file as $value) {
-//         if (empty($value)) {
-//             $error = "Merci de choisir un fichier";
-//             $success = false;
-//         } else {
-//             $success = true;
-//         }
-//         // Si succès : ajout dans la BDD
-//         if ($success) {
-//             echo 'Fichier créé: ' . $filepath . $value . '<br>';
-//             global $bdd;
-//             $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
-//             $statement->execute(array($value));
-//             $success = "OK !";
-//         }
-//     }
-//     $zip = new ZipArchive();
-
-//     if ($zip->open('Zip.zip', ZipArchive::CREATE) == true) {
-//         echo "ouvert";
-
-//         $zip->addFile($filepath.$file);
-
-//         $zip->close();
-//     } else {
-//         echo "Impossible";
-//     }
-// }
-// Si pas de fichier sélectionné
-
-// Si succès
-// if ($success) {
-//     global $bdd;
-//     // move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
-//     $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
-//     $statement->execute(array($file));
-//     $success = "OK !";
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
