@@ -61,21 +61,11 @@ include 'header.php';
 <p class="success"><a href="assets/files/<?php echo $success ?>" download><?php echo $success; ?></a></p>
 
 </form>
-<br>
-<!--Background part Upload-->
-<div id="background" class="container">
-        <div class=row>
-            <div class="col-md-12">
-                <img src="assets/img/download.jpg" class="img-fluid" alt="image">
-            </div>
-        </div>
-    </div>
-</div>
 
 </section>
 
 <?php
-
+echo $_SERVER['r'];
 // include 'contact-form.php';
 
 include 'footer.php';
