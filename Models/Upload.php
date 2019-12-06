@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
 
         $imageCount = count($_FILES['file']['name']);
         for ($i = 0; $i < $imageCount; $i++) {
+            
             $ext = pathinfo($_FILES['file']['name'][$i], PATHINFO_EXTENSION);
 
             if ($_FILES['file']['tmp_name'][$i] == '') {
