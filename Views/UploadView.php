@@ -13,6 +13,7 @@ include 'header.php';
                         <p>Z</p>
                     </label>
                     <input type="file" id="file" class="input-file" name="file[]" multiple>
+
                     <?php
 
                     require('Models/Connexion.php');
@@ -29,17 +30,22 @@ include 'header.php';
 
                     ?>
             </div>
+            <p class="error"><?php echo $error; ?></p>
+
             <div class="form-group row m-2">
                 <label for="emailto">Envoyer à :</label>
-                <input type="email" class="form-control" name="emailto" id="emailto">
+                <input type="email" class="form-control" name="emailto" id="emailto" placeholder="Adresse email du destinataire">
+                <p class="error"><?php echo $emailtoError ?></p>
             </div>
             <div class="form-group row m-2">
                 <label for="email">De la part de :</label>
-                <input type="email" class="form-control" name="email" id="email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Votre adresse email">
+                <p class="error"><?php echo $emailError ?></p>
             </div>
             <div class="form-group row m-2">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" id="message" cols="50" rows="3"></textarea>
+                <p class="error"><?php echo $messageError ?></p>
             </div>
             <div class="form-group row m-2">
                 <input type="submit" id="submit" name="submit" class="form-control btn btn-outline-info" value="Envoyer">
@@ -47,7 +53,6 @@ include 'header.php';
         </div>
     </div>
 </div>
-<p class="error"><?php echo $error; ?></p>
 <p class="success"><a href="assets/files/<?php echo $success ?>" download><?php echo $success; ?></a></p>
 
 </form>

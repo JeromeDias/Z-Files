@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     }
 
     if(empty($message)) {
-        $messageError = "Merci de renseigner message";
+        $messageError = "Merci de renseigner un message";
         $isSuccess = false;
     }
     else {
