@@ -210,6 +210,11 @@ textarea {
   padding: 10px 40px;
   margin-top: 20px;
 }
+.error {
+	color: rgb(189, 51, 51);
+	font-weight: bold;
+}
+
 
 p {
   text-align: center;
@@ -247,4 +252,9 @@ p {
   top: 100%;
   left: 50%;
   margin-left: -8px;
+}
+.bordure{
+	border: 1px solid #00b1ca;
+	border-radius: 20px;
+	padding: 20px;
 }
