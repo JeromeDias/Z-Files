@@ -33,22 +33,9 @@ include 'header.php';
                     <input id="file" class="input-file" type="file">
    
                 </form>
-
-            </div>
-
-        </div>
-
-
-
-    </div>
-    <div id="background" class="container">
-        <div class=row>
-            <div class="col-md-12">
-                <img src="assets/img/" class="img-fluid" alt="index">
             </div>
         </div>
     </div>
-
 </div>
 <?php
 
