@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
     mail($emailto, $subjectto, $message, $header);
 
 
-    
+
 
     $email = $_POST['email'];
     $subject = "Email de confirmation d'envoi";
@@ -80,6 +80,7 @@ if (isset($_POST['submit'])) {
     $headers = 'MIME-Version: 1.0';
     $headers .= 'Content-type: multipart/mixed; charset="utf-8"';
 
+    // Vérification des champs vides
     if (empty($emailto)) {
         $emailtoError = "Merci de renseigner un e-mail";
         $isSuccess = false;
@@ -92,12 +93,13 @@ if (isset($_POST['submit'])) {
         $emailText .= "De la part de : " . $email . "\n";
     }
 
-    if(empty($messageto)) {
+    if (empty($messageto)) {
         $messageError = "Merci de renseigner un message";
         $isSuccess = false;
     } else {
         $emailText .= "Message : " . $messageto . "\n";
     }
+
 
     if (!empty($email) && !empty($emailto)) {
         $emailText .= 'Z-Files - Le transfert de fichiers numéro 1 <br>
@@ -105,7 +107,7 @@ if (isset($_POST['submit'])) {
         mail($email, $subject, $message, $headers);
     }
 
-
+    // && !empty($emailto) && !empty($email) && !empty($messageto)
     if (!empty($_FILES['file']['name'][0])) {
 
         $zip = new ZipArchive();
@@ -132,8 +134,18 @@ if (isset($_POST['submit'])) {
 
             // Déplace le fichier dans le chemin défini
             // move_uploaded_file($_FILES['file']['tmp_name'][$i], './assets/files/' . $newname);
+            // Récupération du poids des fichiers 
         }
         $zip->close();
+
+
+        $size = filesize($zip_name);
+        $size = round($size / 1024);
+        echo $size . ' Ko';
+
+
+
+
 
         // Création du lien de téléchargement
         $success = basename($zip_name);
@@ -141,6 +153,7 @@ if (isset($_POST['submit'])) {
         $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
         $statement->execute(array($success));
     } else {
+        $isSuccess = false;
         $error = '<strong>Erreur ! </strong> Merci de choisir un fichier.';
     }
 }
