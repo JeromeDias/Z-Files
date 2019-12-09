@@ -20,7 +20,6 @@ include 'header.php';
                         <input type="file" id="file" class="input-file" name="file[]" multiple>
                         <p class="error"><?php echo $error; ?></p>
                     </div>
-
                     <?php
 
                     require('Models/Connexion.php');
@@ -33,7 +32,6 @@ include 'header.php';
                             }
                         }
                     }
-
                     ?>
             </div>
 
@@ -65,7 +63,5 @@ include 'header.php';
 </section>
 
 <?php
-echo $_SERVER['r'];
-// include 'contact-form.php';
 
 include 'footer.php';
