@@ -65,7 +65,7 @@ include 'header.php';
 </section>
 
 <?php
-echo $_SERVER['r'];
+
 // include 'contact-form.php';
 
 include 'footer.php';
