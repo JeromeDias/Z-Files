@@ -11,3 +11,7 @@ function getUpload($url) {
     $upload = $statement->fetch();
     return $upload;
 }
+
+
+$size = filesize($zip_name);
+$size = round($size / 1024);

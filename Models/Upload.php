@@ -71,9 +71,6 @@ if (isset($_POST['submit'])) {
         $zip->close();
 
 
-        $size = filesize($zip_name);
-        $size = round($size / 1024);
-        echo $size . ' Ko';
 
 
 
