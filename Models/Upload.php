@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
         $emailText .= "De la part de : " . $email . "\n";
     }
 
-    if (empty($message)) {
+    if(empty($messageto)) {
         $messageError = "Merci de renseigner un message";
         $isSuccess = false;
     } else {
