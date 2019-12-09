@@ -18,6 +18,7 @@
     <nav>
         <ul>
             <li><a href="index.php?page=Upload">Upload</a></li>
+            <li><a href="index.php?page=Download">Download</a></li>
             <li class="logo-z"><img src="assets/img/logo/z-files.png" alt=""></li>
         </ul>
     </nav>

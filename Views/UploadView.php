@@ -53,7 +53,7 @@ include 'header.php';
                 <p class="error"><?php echo $messageError ?></p>
             </div>
             <div class="form-group row m-2">
-                <input type="submit" id="submit" name="submit" class="form-control btn btn-submit" value="Envoyer">
+                <input type="submit" id="submit" name="submit" class="form-control btn btn-submit" value="Transférer">
             </div>
         </div>
     </div>
@@ -61,21 +61,11 @@ include 'header.php';
 <p class="success"><a href="assets/files/<?php echo $success ?>" download><?php echo $success; ?></a></p>
 
 </form>
-<br>
-<!--Background part Upload-->
-<div id="background" class="container">
-        <div class=row>
-            <div class="col-md-12">
-                <img src="assets/img/download.jpg" class="img-fluid" alt="image">
-            </div>
-        </div>
-    </div>
-</div>
 
 </section>
 
 <?php
-
+echo $_SERVER['r'];
 // include 'contact-form.php';
 
 include 'footer.php';

@@ -101,11 +101,14 @@ section {
   display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
+	font-family: 'Kulim Park', sans-serif;
+	background: linear-gradient(70deg, #7cd8e4, #0397aa, #1b7783) no-repeat;
+	
 }
-ol,
-ul {
-  list-style: none;
+
+ol, ul {
+	list-style: none;
 }
 blockquote,
 q {
@@ -132,93 +135,68 @@ input,
 textarea {
   box-sizing: border-box;
 }
+
+.logo-z{
+	text-align: center;
+}
+
+.logo-z img {
+	width: 25%;
+	height: auto;
+
+}
 /***************************************/
 /***************END OF RESET************/
 /***************************************/
 
-#download{
-  text-align: center;
+/***************************************/
+/* NAVBAR */
+/***************************************/
+
+
+
+
+
+
+/***************************************/
+/* FORMULAIRE */
+/***************************************/
+
+
+
+.download-title {
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	padding-left: 10px;
+	cursor: pointer;
+	transition: all .5s;
 }
 
-
-/* #file {
-  text-align: center;
-  box-shadow: inset -2px -1px 15px #73a2c0;
-  background: linear-gradient(top bottom, #74a2c0 5%, #73a3c0 100%);
-  background-color: #2e466e;
-  border-radius: 42px;
-  border: 1px solid #1f2f47;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 12px;
-  padding: 5px 21px;
-  text-decoration: none;
-  text-shadow: 0px 0px 0px #263666;
+.download-title:hover {
+	color: #1ba7df;
 }
 
-#file:hover {
-  background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-  background-color: #415989;
+.btn-download {
+	text-align: center;	
 }
 
-#file:active {
-  position: relative;
-  top: 1px;
-} */
-
-#submit {
-  box-shadow: inset -2px -1px 15px #25a5c4;
-  background: linear-gradient(top bottom, #2e466e 5%, #415989 100%);
-  background-color: #2e466e;
-  border-radius: 42px;
-  border: 1px solid #1f2f47;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 12px;
-  padding: 5px 21px;
-  text-decoration: none;
-  text-shadow: 0px 0px 0px #263666;
+.content-download {
+	display: flex;
+	align-items: center;
 }
 
-#submit:hover {
-  background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-  background-color: #415989;
+label {
+	margin-bottom: 10px;
 }
 
-#submit:active {
-  position: relative;
-  top: 1px;
+.label-file img {
+	cursor: pointer;
+	width: 50px;
 }
 
-#background {
-  margin: auto;
-  text-align: center;
-}
-
-.label-file {
-  cursor: pointer;
-  color: #fff;
-  background: #00b1ca;
-  font-weight: bold;
-  font-size: 4rem;
-  border: 2px solid #00b1ca;
-  border-radius: 100%;
-  padding: 10px 40px;
-  margin-top: 20px;
-}
 .error {
 	color: rgb(189, 51, 51);
 	font-weight: bold;
-}
-
-
-p {
-  text-align: center;
-  margin-bottom: 0 !important;
 }
 
 .input-file {
@@ -257,4 +235,41 @@ p {
 	border: 1px solid #00b1ca;
 	border-radius: 20px;
 	padding: 20px;
+	background-color: #fff;
+}
+
+textarea {
+	resize: none;
+}
+
+.btn-submit {
+	background: #1ba7df;
+	color: #fff;
+	border: 1.5px solid #1ba7df;
+	transition: all .5s;
+	text-transform: uppercase;
+}
+
+.btn-submit:hover {
+	background: #fff;
+	border: 1.5px solid #1ba7df;
+	color: #1ba7df;
+}
+
+.container {
+	padding: 5% 0;
+}
+
+#submit {
+	margin-top: 20px;
+}
+
+/*************/
+/** FOOTER **/
+/*************/
+
+footer {
+	margin-top: 10px;
+	padding-bottom: 5px;
+	text-align: center;
 }
