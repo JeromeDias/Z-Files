@@ -3,9 +3,9 @@
 require('Models/Download.php');
 
 if(isset($_GET['url'])) {
-    $id = $_GET['url'];
+    $url = $_GET['url'];
 }
 
-$url = getUpload($id);
+$upload = getUpload($url);
 
 require('Views/DownloadView.php');
