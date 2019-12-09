@@ -6,6 +6,6 @@ if(isset($_GET['url'])) {
     $id = $_GET['url'];
 }
 
-$url = getUpload($id);
+$upload = getUpload($id);
 
 require('Views/DownloadView.php');
