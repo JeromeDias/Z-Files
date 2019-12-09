@@ -63,6 +63,5 @@ include 'header.php';
 </section>
 
 <?php
-// include 'contact-form.php';
 
 include 'footer.php';
