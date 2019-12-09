@@ -33,13 +33,8 @@ include 'header.php';
                     <input id="file" class="input-file" type="file">
    
                 </form>
-
             </div>
-
         </div>
-
-
-
     </div>
     
 </div>

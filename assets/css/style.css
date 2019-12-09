@@ -263,6 +263,27 @@ textarea {
 #submit {
 	margin-top: 20px;
 }
+/* PAGE DOWNLOAD */
+.dwn-title{
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.arrowdwn{
+	display: flex;
+	justify-content: center;
+}
+.imgdwn{
+	width: 70px;
+	padding-top: 20px;
+}
+hr{
+	width: 50%;
+  	border: 0; 
+  	height: 1px; 
+  	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
 
 /*************/
 /** FOOTER **/
