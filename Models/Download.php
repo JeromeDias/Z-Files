@@ -12,6 +12,11 @@ function getUpload($url) {
     return $upload;
 }
 
+function getImages($url) {
+    global $bdd;
+    $statement = $bdd->prepare('SELECT relation.id_file, relation.id_img, images.name, images.id FROM relation INNER JOIN images ON relation.id_img = images.id INNER JOIN files ON relation.id_file = files.id WHERE url = ?');
+    $statement->execute(array($url));
+    $img = $statement->fetchAll();
+    return $img;
+}
 
-$size = filesize($zip_name);
-$size = round($size / 1024);

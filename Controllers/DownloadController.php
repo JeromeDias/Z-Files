@@ -9,4 +9,6 @@ if(isset($_GET['url'])) {
 
 $upload = getUpload($url);
 
+$img = getImages($url);
+
 require('Views/DownloadView.php');
