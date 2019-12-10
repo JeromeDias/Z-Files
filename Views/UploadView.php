@@ -57,8 +57,6 @@ include 'header.php';
         </div>
     </div>
 </div>
-<p class="success"><a href="assets/files/<?php echo $success ?>" download><?php echo $success; ?></a></p>
-
 </form>
 
 </section>
