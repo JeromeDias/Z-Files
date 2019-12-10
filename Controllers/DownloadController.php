@@ -1,11 +1,14 @@
 <?php
 
 require('Models/Download.php');
+require('Models/Upload.php');
 
 if(isset($_GET['url'])) {
-    $id = $_GET['url'];
+    $url = $_GET['url'];
 }
 
-$url = getUpload($id);
+$upload = getUpload($url);
+
+$img = getImages($url);
 
 require('Views/DownloadView.php');
