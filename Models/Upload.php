@@ -9,6 +9,7 @@ $error = "";
 $success = "";
 $emailtoError = "";
 $emailError = "";
+$msg = "";
 $messageError = "";
 
 // Envoi du fichier
@@ -19,6 +20,7 @@ if (isset($_POST['submit'])) {
   $subject = "Email de confirmation d'envoi";
   $message = "";
   $messageto = "";
+  $msg = $_POST['message'];
   $isSuccess = true;
   $emailText = "";
 
@@ -45,6 +47,21 @@ if (isset($_POST['submit'])) {
     $zip = new ZipArchive();
     $zip_name = getcwd() . "/assets/files/upload_" . time() . ".zip";
 
+  if (empty($_POST['email'])) {
+    $emailError = "Merci de renseigner un e-mail";
+    $isSuccess = false;
+  }
+
+  if (empty($msg)) {
+    $messageError = "Merci de renseigner un message";
+    $isSuccess = false;
+  }
+
+  if (!empty($_FILES['file']['name'][0]) && !empty($_POST['email']) && !empty($_POST['emailto']) && !empty($_POST['message'])) {
+
+    $zip = new ZipArchive();
+    $zip_name = getcwd() . "/assets/files/upload_" . time() . ".zip";
+
 
     // Créer un fichier ZIP
     if ($zip->open($zip_name, ZipArchive::CREATE) !== TRUE) {
@@ -59,6 +76,10 @@ if (isset($_POST['submit'])) {
       if ($_FILES['file']['tmp_name'][$i] == '') {
         continue;
       }
+      $images = $_FILES['file']['name'];
+      global $bdd;
+      $statement = $bdd->prepare('INSERT INTO images (name) VALUES (?)');
+      $statement->execute(array($images[$i]));
       // $newname = date('YmdHis', time()) . mt_rand() . '.' . $ext;
 
       // Ajoute un fichier dans un dossier ZIP
@@ -66,24 +87,38 @@ if (isset($_POST['submit'])) {
 
       // Déplace le fichier dans le chemin défini
       // move_uploaded_file($_FILES['file']['tmp_name'][$i], './assets/files/' . $newname);
-      // Récupération du poids des fichiers 
     }
     $zip->close();
 
-
+    // Récupération du poids du dossier zip
     $size = filesize($zip_name);
-    $size = round($size / 1024);
-    echo $size . ' Ko';
-
-
-
-
+    $size = $size / 1024;
 
     // Création du lien de téléchargement
     $success = basename($zip_name);
     global $bdd;
-    $statement = $bdd->prepare('INSERT INTO files (url) VALUES (?)');
-    $statement->execute(array($success));
+    $statement = $bdd->prepare('INSERT INTO files (url, poids, message) VALUES (?, ?, ?)');
+    $statement->execute(array($success, $size, $msg));
+
+    // Récupération de l'ID du fichier zip
+    global $bdd;
+    $stm = $bdd->prepare('SELECT MAX(id) FROM files');
+    $stm->execute();
+    $zip = $stm->fetch()['MAX(id)'];
+
+    // Récupération des ID des derniers fichiers
+    global $bdd;
+    $stm = $bdd->prepare('SELECT id FROM images ORDER BY id DESC LIMIT ' . count($_FILES['file']['name']));
+    $stm->execute();
+    $img = $stm->fetchAll();
+
+    // Insertion dans la table relation
+    foreach ($img as $value) {
+      global $bdd;
+      $statement = $bdd->prepare('INSERT INTO relation (id_file, id_img) VALUES (?, ?)');
+      $statement->execute(array($zip, $value['id']));
+    }
+
   } else {
     $isSuccess = false;
     $error = '<strong>Erreur ! </strong> Merci de choisir un fichier.';

@@ -12,13 +12,18 @@ include 'header.php';
                 <form action="" method="post" enctype="multipart/form-data">
                     <p class="dwn-title">Page de téléchargement</p>
                     <hr>
-                    <p>Date : </p><br>
-                    <p>Nom des fichiers :</p><br>
-                    <p>Taille du zip :</p>
+                    <p>Date : <?php echo $upload['date']; ?></p><br>
+                    <p>Nom des fichiers : 
+                    <?php
+                    foreach ($img as $value) {
+                        echo '<br>' . $value['name'];
+                    }
+                    ?>
+                    </p><br>
+                    <p>Taille du zip : <?php echo $upload['poids'] . ' Ko'; ?></p>
                     <hr>
-                    <p>Message de l'expéditeur :</p><br>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem in fugit repudiandae, nihil itaque cumque ex porro a, tempore eius fugiat expedita? Cupiditate veritatis sapiente nulla, molestiae aut nesciunt hic.</p>
-                    </p>
+                    <p>Message de l'expéditeur :</p> <?php echo $upload['message']; ?>
+                    
                     <hr>
                     <p>Cliquez sur le lien ci dessous pour récuperer vos fichiers</p>
                     <div class="arrowdwn">
