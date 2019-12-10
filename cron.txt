@@ -11,3 +11,11 @@ $sql = "DELETE FROM annonces WHERE date= '$date_expiration'" ;
 mysql_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error());
 
 ?>
+
+
+
+bonjour le test fonctionne!!! 
+
+
+
+Je suis la ligne 40 
