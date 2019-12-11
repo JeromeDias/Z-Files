@@ -66,27 +66,14 @@ S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715
                                 </div>
                             </label>
                             <input type="file" id="file" class="input-file" name="file[]" multiple>
-                            <p class="error"><?php echo $error; ?></p>
+                            <p class="error"><?php echo $error ?></p>
                         </div>
                         <p id="fichiers"></p>
-                        <?php
-
-                        // if (isset($_POST['submit'])) {
-
-                        //     if ($success) {
-                        //         echo 'Nom de vos fichiers : ';
-                        //         for ($i = 0; $i < sizeof($_FILES['file']['name']); $i++) {
-                        //             echo $_FILES['file']['name'][$i] . ', ';
-                        //         }
-                        //     }
-                        // }
-
-                        ?>
                 </div>
 
                 <div class="form-group row m-2">
                     <label for="emailto">Envoyer à :</label>
-                    <input type="email" class="form-control" name="emailto" id="emailto" placeholder="Adresse email du destinataire" value="<?php echo $emailto; ?>">
+                    <input type="email" class="form-control" name="emailto" id="emailto" placeholder="Adresse email du destinataire" value="<?php echo $emailto ?>">
                     <p class="error"><?php echo $emailtoError ?></p>
                 </div>
                 <div class="form-group row m-2">
