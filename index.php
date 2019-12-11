@@ -5,7 +5,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
 }
 
 else {
-    $page = 'Home';
+    $page = 'Upload';
 }
 
 $page = ucfirst($page);
