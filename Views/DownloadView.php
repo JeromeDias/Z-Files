@@ -23,7 +23,6 @@ include 'header.php';
                     <p>Taille du zip : <?php echo $upload['poids'] . ' Ko'; ?></p>
                     <hr>
                     <p>Message de l'expéditeur :</p> <?php echo $upload['message']; ?>
-                    
                     <hr>
                     <p>Cliquez sur le lien ci dessous pour récuperer vos fichiers</p>
                     <div class="arrowdwn">
