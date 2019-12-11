@@ -231,3 +231,4 @@ if (isset($_POST['submit'])) {
 
   mail($email, $subject, $message, $headers);
 }
+}
