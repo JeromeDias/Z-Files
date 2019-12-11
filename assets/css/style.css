@@ -104,7 +104,7 @@ body {
 	line-height: 1;
 	font-family: 'Kulim Park', sans-serif;
 	background: linear-gradient(70deg, #7cd8e4, #0397aa, #1b7783) no-repeat;
-	
+
 }
 
 ol, ul {
@@ -153,16 +153,57 @@ textarea {
 /* NAVBAR */
 /***************************************/
 
+nav {
+	padding-top: 50px;
+}
 
 
+/* scrollbar */
 
-
+::-webkit-scrollbar {
+	width: 12px;
+	  box-shadow: inset 0 0 5px grey;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	  box-shadow: inset 0 0 5px grey;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #0397aa;
+	  border-radius: 10px;
+	  border: 1px solid gray;
+	  box-shadow: inset 0 0 2px white;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #0397aa;
+  }
+  /* fin scrollbar */
 
 /***************************************/
 /* FORMULAIRE */
 /***************************************/
 
+#fichiers {
+	text-align: center;
+	color: #22508b;
+}
 
+.cloud:first-child {
+	width: 100px;
+	position: absolute;
+	left: 0;
+}
+
+.cloud:nth-child(2) {
+	width: 100px;
+	position: absolute;
+	bottom: 0;
+}
 
 .download-title {
 	text-transform: uppercase;
@@ -285,12 +326,19 @@ hr{
   	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 
+.success {
+	color: green;
+	text-align:center;
+	display: none;
+	font-size: 1.1rem;
+}
+
 /*************/
 /** FOOTER **/
 /*************/
 
 footer {
 	margin-top: 10px;
-	padding-bottom: 5px;
+	padding-bottom: 3%;
 	text-align: center;
 }
