@@ -1,28 +1,3 @@
-// Nuages
-
-// let move = 0;
-// let move2 = 0;
-
-// setInterval(function () {
-
-//     let cloud = document.querySelectorAll('.cloud');
-//     move += 10;
-//     move2 -= 10;
-
-//     for (let i = 0; i < cloud.length; i++) {
-
-
-//         if (parseInt(window.getComputedStyle(cloud[i]).getPropertyValue("left")) <= 200) {
-//             cloud[i].style.left = move + "px";
-//         }
-
-//         // if (parseInt(window.getComputedStyle(cloud[i]).getPropertyValue("left")) > 200) {
-//         //     cloud[i].style.left = move2 + "px";
-//         // }
-//     }
-
-// }, 100);
-
 
 // Nom des fichiers sur le formulaire
 

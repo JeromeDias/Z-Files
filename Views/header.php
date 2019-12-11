@@ -20,7 +20,3 @@
             <li class="logo-z"><img src="assets/img/logo/z-files2.png" alt=""></li>
         </ul>
     </nav>
-
-    <header id="header" class="">
-
-    </header>

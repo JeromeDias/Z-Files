@@ -8,6 +8,8 @@ require('Connexion.php');
 $error = "";
 $success = "";
 $emailtoError = "";
+$emailto = "";
+$email = "";
 $emailError = "";
 $msg = "";
 $messageError = "";
