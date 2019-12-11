@@ -310,7 +310,8 @@ textarea {
 	text-transform: uppercase;
 	font-size: 1.4rem;
 	text-align: center;
-	padding-bottom: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 .arrowdwn{
 	display: flex;
