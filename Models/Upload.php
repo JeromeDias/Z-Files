@@ -39,21 +39,6 @@ if (isset($_POST['submit'])) {
     $isSuccess = false;
   }
 
-  if (empty($_POST['message'])) {
-    $messageError = "Merci de renseigner un message";
-    $isSuccess = false;
-  }
-
-  if (!empty($_FILES['file']['name'][0]) && !empty($_POST['email']) && !empty($_POST['emailto']) && !empty($_POST['message'])) {
-
-    $zip = new ZipArchive();
-    $zip_name = getcwd() . "/assets/files/upload_" . time() . ".zip";
-
-  if (empty($_POST['email'])) {
-    $emailError = "Merci de renseigner un e-mail";
-    $isSuccess = false;
-  }
-
   if (empty($msg)) {
     $messageError = "Merci de renseigner un message";
     $isSuccess = false;
@@ -232,5 +217,4 @@ if (isset($_POST['submit'])) {
 
 
   mail($email, $subject, $message, $headers);
-}
 }
