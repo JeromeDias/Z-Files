@@ -230,7 +230,12 @@ label {
 
 .label-file img {
 	cursor: pointer;
-	width: 50px;
+  width: 50px;
+  transition: all .3s;
+}
+
+.label-file img:hover {
+  transform: scale(1.1);
 }
 
 .error {
@@ -335,7 +340,7 @@ hr{
 
 footer {
 	padding: 3% 0 1% 0;
-  text-align: center;
+	text-align: center;
 }
 
 /***************/
