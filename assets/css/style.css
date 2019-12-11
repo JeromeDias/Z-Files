@@ -336,7 +336,6 @@ hr{
 footer {
 	padding: 3% 0 1% 0;
 	text-align: center;
-
 }
 
 /***************/
@@ -345,7 +344,7 @@ footer {
 
 html,
 body {
-background: linear-gradient(70deg, #7cd8e4, #0397aa, #1b7783) no-repeat;
+background: linear-gradient(90deg, #7cd8e4, #0397aa, #1b7783);
   margin: 0;
   padding: 0;
   width: 100%;
