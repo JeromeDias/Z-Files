@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
 
   } else {
     $isSuccess = false;
-    $error = 'Merci de choisir un fichier.';
+    $error = "Merci de choisir un fichier";
   }
 
   //=====Déclaration des messages au format texte et au format HTML.
